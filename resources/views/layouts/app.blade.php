@@ -1,11 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ecommerce</title>
+    <style>
+        /*Create view*/
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contenedor {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .boton {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .boton:hover {
+            background-color: #0056b3;
+        }
+
+        /*Details view */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contenedor {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .producto {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+        }
+
+        .producto img {
+            width: 400px;
+            border-radius: 10px;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        .info h1 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .marca {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .descripcion {
+            font-size: 17px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .precio {
+            font-size: 28px;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .precio-original {
+            font-size: 18px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        .etiqueta-descuento {
+            display: inline-block;
+            background-color: #ff9800;
+            color: #fff;
+            font-size: 14px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+
+        .envio,
+        .vendedor {
+            font-size: 15px;
+            margin-top: 10px;
+            color: #444;
+        }
+
+        .boton-comprar {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .boton-comprar:hover {
+            background-color: #218838;
+        }
+
+        .agotado {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /*index view*/
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: #333;
+        }
+
+        .grid-productos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .tarjeta {
+            background-color: #fff;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .contenido {
+            padding: 15px;
+            flex: 1;
+        }
+
+        .contenido h2 {
+            font-size: 18px;
+            margin: 0 0 10px;
+            color: #222;
+        }
+
+        .contenido p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .precio {
+            font-size: 20px;
+            color: #e91e63;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .boton {
+            display: block;
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            border-top: 1px solid #eee;
+        }
+
+        .boton:hover {
+            background-color: #218838;
+        }
+
+        /*NavBar*/
+        .navbar {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #ffc107;
+        }
+
+        /*Footer*/
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+            margin-top: 50px;
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
 
     @include('layouts.navbar')
@@ -13,6 +312,7 @@
     @yield('content')
 
     @include('layouts.footer')
-    
+
 </body>
+
 </html>
