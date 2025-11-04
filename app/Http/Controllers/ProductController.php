@@ -11,7 +11,7 @@ class ProductController extends Controller
         return view('products.index');
     }
 
-    function details($id, $category = null)
+    function detail($id, $category = null)
     {
         if ($category != null) {
             return view("products.detail", [
