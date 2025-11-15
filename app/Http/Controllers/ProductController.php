@@ -67,4 +67,10 @@ class ProductController extends Controller
             'products'=>$products
         ]);
     }
+
+    function delete(product $product)
+    {
+        $product->delete();
+        return redirect()->back();
+    }
 }

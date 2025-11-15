@@ -24,4 +24,6 @@ Route::prefix('admin')->controller(AdminController::class)->group(function(){
 
     Route::get('products', [ProductController::class, 'table'])->name('admin.products.table');
 
+    Route::delete('/products/{product}', [ProductController::class, 'delete'])->name('products.delete');
+
 });
