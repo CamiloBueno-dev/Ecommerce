@@ -7,7 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;        
 
-Route::get('/', [ProductController::class,'index']);
+Route::get('/', [ProductController::class,'index'])->name('products.index');
 Route::get('products/{id}/{category?}', [ProductController::class,'detail']);
 
 
@@ -32,7 +32,5 @@ Route::prefix('admin')->controller(AdminController::class)->group(function(){
     Route::get('/brands/create', [BrandController::class, 'create'])->name('admin.brands.create');
     Route::post('/brands/store', [BrandController::class, 'store'])->name('admin.brands.store');
     Route::delete('/brands/{brand}', [BrandController::class, 'delete'])->name('admin.brands.delete');
-
-
 
 });
