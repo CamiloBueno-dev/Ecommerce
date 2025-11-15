@@ -5,6 +5,9 @@
 
         <div class="card-body">
             <h3>Products List</h3>
+
+            <a type="button" class="btn btn-success" href="{{route('admin.products.create')}}">Add new product</a>
+
             <table class="table align-items-center mb-0">
                 <thead>
                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center">ID</th>

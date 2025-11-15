@@ -32,7 +32,7 @@
                 @enderror
                 <div class="input-group input-group-outline mb-3">
                     <label for="precio" class="form-label">Price</label>
-                    <input type="number" class="form-control" id="productPrice" name="price" value="{{old('price')}}">
+                    <input type="text" class="form-control" id="productPrice" name="price" value="{{old('price')}}">
                 </div>
 
                 <!--Categoria del producto-->
@@ -60,12 +60,6 @@
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach
                     </select>
-                </div>
-
-                <!--Imagen del producto-->
-                <div class="input-group input-group-outline mb-3">
-                    <label for="imagen" class="form-label">Image URL</label>
-                    <input type="text" class="form-control" id="productImage">
                 </div>
 
                 <button type="submit" class="btn btn-dark">Create Product</button>
