@@ -5,7 +5,8 @@
 
     <div class="card">
         <div class="card-body">
-            <form method="post" action="#">
+            <form action="{{ route('admin.products.store') }}" method="POST">
+                @csrf
 
                 <!--Nombre del producto-->
                 <div class="input-group input-group-outline mb-3">
@@ -27,7 +28,7 @@
 
                 <!--Categoria del producto-->
                 <div class="input-group input-group-outline mb-3">
-                    <select class="form-control" id="productCategory" name="categoy">
+                    <select class="form-control" id="productCategory" name="category">
                         <option value="">-- Category --</option>
                         @foreach ($categories as $item)
                             <option value="{{$item->id}}">{{$item->name}}</option>
@@ -48,7 +49,7 @@
                 <!--Imagen del producto-->
                 <div class="input-group input-group-outline mb-3">
                     <label for="imagen" class="form-label">Image URL</label>
-                    <input type="text" class="form-control" id="productImage" name="image">
+                    <input type="text" class="form-control" id="productImage">
                 </div>
 
                 <button type="submit" class="btn btn-dark">Create Product</button>
