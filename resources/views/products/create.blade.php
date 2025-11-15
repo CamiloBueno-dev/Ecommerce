@@ -23,7 +23,7 @@
                 @enderror
                 <div class="input-group input-group-outline mb-3">
                     <label for="descripcion" class="form-label">Description</label>
-                    <textarea class="form-control" id="productDescription" rows="4" name="description">value="{{old('description')}}"</textarea>
+                    <textarea class="form-control" id="productDescription" rows="4" name="description">{{old('description')}}</textarea>
                 </div>
 
                 <!--Precio del producto-->
