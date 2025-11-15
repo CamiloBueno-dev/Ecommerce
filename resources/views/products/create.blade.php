@@ -1,37 +1,59 @@
-@extends('layouts.app')
+@extends('admin.layouts.app')
 
 @section('content')
-    <div class="contenedor">
-        <h1>Agregar Nuevo Producto</h1>
-        <form method="post" action="#">
-            <label for="id">ID del Producto</label>
-            <input type="text" id="id" name="id" placeholder="Ej: P12345">
+    <h2>Add New Product</h2>
 
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Ej: Auriculares Xiaomi">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" action="#">
 
-            <label for="precio">Precio</label>
-            <input type="number" id="precio" name="precio" placeholder="Ej: 249000">
+                <!--Nombre del producto-->
+                <div class="input-group input-group-outline mb-3">
+                    <label for="nombre" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="productName" name="name">
+                </div>
 
-            <label for="categoria">Categoría</label>
-            <select id="categoria" name="categoria">
-                <option value="">-- Selecciona una categoría --</option>
-                <option value="audio">Audio</option>
-                <option value="computadores">Computadores</option>
-                <option value="televisores">Televisores</option>
-                <option value="accesorios">Accesorios</option>
-            </select>
+                <!--Descripción del producto-->
+                <div class="input-group input-group-outline mb-3">
+                    <label for="descripcion" class="form-label">Description</label>
+                    <textarea class="form-control" id="productDescription" rows="4" name="description"></textarea>
+                </div>
 
-            <label for="marca">Marca</label>
-            <input type="text" id="marca" name="marca" placeholder="Ej: Xiaomi">
+                <!--Precio del producto-->
+                <div class="input-group input-group-outline mb-3">
+                    <label for="precio" class="form-label">Price</label>
+                    <input type="number" class="form-control" id="productPrice" name="price">
+                </div>
 
-            <label for="imagen">URL de la Imagen</label>
-            <input type="text" id="imagen" name="imagen" placeholder="Ej: https://ejemplo.com/imagen.jpg">
+                <!--Categoria del producto-->
+                <div class="input-group input-group-outline mb-3">
+                    <select class="form-control" id="productCategory" name="categoy">
+                        <option value="">-- Category --</option>
+                        @foreach ($categories as $item)
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <label for="descripcion">Descripción</label>
-            <textarea id="descripcion" name="descripcion" placeholder="Describe el producto..."></textarea>
+                <!--Marca del producto-->
+                <div class="input-group input-group-outline mb-3">
+                    <select class="form-control" id="productBrand" name="brand">
+                        <option value="">-- Brand --</option>
+                        @foreach ($brands as $item)
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <button type="submit" class="boton">Guardar Producto</button>
-        </form>
+                <!--Imagen del producto-->
+                <div class="input-group input-group-outline mb-3">
+                    <label for="imagen" class="form-label">Image URL</label>
+                    <input type="text" class="form-control" id="productImage" name="image">
+                </div>
+
+                <button type="submit" class="btn btn-dark">Create Product</button>
+            </form>
+
+        </div>
     </div>
 @endsection
